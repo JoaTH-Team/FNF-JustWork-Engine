@@ -1,0 +1,6 @@
+function create()
+{
+    var bg:FlxSprite = new FlxSprite(0, 0);
+    bg.makeGraphic(FlxG.width, FlxG.height, FlxColor.WHITE);
+    PlayState.instance.add(bg);
+}
