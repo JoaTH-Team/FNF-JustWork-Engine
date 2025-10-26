@@ -1,7 +1,8 @@
 package states;
 
-import flixel.util.FlxScriptUtil;
+import flixel.FlxG;
 import game.objects.Character;
+import game.scripts.FunkinScript;
 
 class PlayState extends MusicBeatState
 {
@@ -20,19 +21,32 @@ class PlayState extends MusicBeatState
 
 	// Stages
 	public var curStage:String = "stage";
+	public var stageScript:FunkinScript;
 
 	override public function create()
 	{
 		super.create();
+	
+		stageScript = new FunkinScript('stages/' + curStage);
 
-		// Build stage script
-		Paths.DATA_EXT = '';
-		FlxScriptUtil.buildRuleScript(Paths.data('stages/$curStage'));
-		FlxScriptUtil.getRuleScript(Paths.data('stages/$curStage')).setVariable("PlayState", this);
+		FlxG.signals.preStateCreate.addOnce(function(state) {
+			callFunction('preCreate', []);
+		});
+		callFunction('create', []);
 	}
 
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
+		
+		FlxG.signals.preUpdate.addOnce(function() {
+			callFunction('preUpdate', [elapsed]);
+		});
+		callFunction('update', [elapsed]);
+	}
+
+	public function callFunction(name:String, args:Array<Dynamic>):Dynamic
+	{
+		return stageScript.executeFunc(name, args);
 	}
 }

@@ -18,7 +18,7 @@
 	<!-- Libraries -->
 	<haxelib name="flixel" />
 	<haxelib name="moonchart" />
-	<haxelib name="flixel-modding" />
+	<haxelib name="scriptless-polymod" />
 	<haxelib name="flixel-addons" />
 	<haxelib name="rulescript" />
 	<haxelib name="flixel-controls" />
