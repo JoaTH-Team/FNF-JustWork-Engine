@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<!-- App Settings -->
+	<app title="FNF JustWork Engine" file="FNF JustWork Engine" main="Main" version="0.0.1" company="HaxeFlixel" />
+	<app preloader="flixel.system.FlxPreloader" />
+
+	<!-- Window Settings -->
+	<window width="1280" height="720" fps="60" background="#000000" hardware="true" vsync="false" />
+	<window if="desktop" resizable="true" />
+	<window if="mobile" fullscreen="true" />
+
+	<!-- Paths -->
+	<set name="BUILD_DIR" value="export" />
+	<source path="source" />
+	<assets path="assets" />
+	<assets path="mods" />
+
+	<!-- Libraries -->
+	<haxelib name="flixel" />
+	<haxelib name="moonchart" />
+	<haxelib name="flixel-modding" />
+	<haxelib name="flixel-addons" />
+	<haxelib name="rulescript" />
+	<haxelib name="flixel-controls" />
+	<haxelib name="haxeui-flixel" />
+	<haxelib name="haxeui-core" />
+
+	<!-- Defines -->
+	<haxedef name="FLX_NO_HEALTH" />
+	<haxedef name="FLX_NO_MOUSE" if="mobile" />
+	<haxedef name="FLX_NO_KEYBOARD" if="mobile" />
+	<haxedef name="FLX_NO_TOUCH" if="desktop" />
+	<haxedef name="FLX_NO_DEBUG" unless="debug" />
+
+	<haxedef name="HXCPP_GC_BIG_BLOCKS" />
+
+	<haxedef name="hscriptPos" />
+	<haxedef name="analyzer-optimize" />
+	<haxedef name="no-deprecation-warnings" />
+	<haxedef name="message.reporting" value="pretty" />
+
+	<!-- Flags -->
+	<haxeflag name="-dce" value="no" />
+	
+	<haxeflag name="--macro" value="include('haxe.ui.backend.flixel.components')" />
+	<haxeflag name="--macro" value="include('haxe.ui.containers.dialogs')" />
+	<haxeflag name="--macro" value="include('haxe.ui.containers.menus')" />
+	<haxeflag name="--macro" value="include('haxe.ui.containers.properties')" />
+	<haxeflag name="--macro" value="include('haxe.ui.core')" />
+	<haxeflag name="--macro" value="include('haxe.ui.components')" />
+	<haxeflag name="--macro" value="include('haxe.ui.containers')" />
+
+	<haxedef name="haxeui_no_mouse_reset" />
+	<haxedef name="haxeui_focus_out_on_click" />
+	<haxedef name="haxeui_dont_impose_base_class" />
+
+	<!-- Misc -->
+	<target id="haxe" tool="linker" if="linux">
+		<lib name="/usr/lib64/libX11.so" if="HXCPP_M64" /> <!-- linux support -->
+	</target>
+	<target id="haxe" tool="linker" if="macos">
+		<lib name="/lib64/libX11.a" if="HXCPP_M64" /> <!-- mac support -->
+	</target>
+</project>
