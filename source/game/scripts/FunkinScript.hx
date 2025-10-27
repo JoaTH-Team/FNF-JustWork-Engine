@@ -25,6 +25,9 @@ class FunkinScript
         setVariable("FlxSprite", FlxSprite);
 		setVariable("FlxColor", FlxScriptColor.main());
 
+		// JustWork Engine Classes
+		setVariable("Paths", Paths);
+
         setVariable("PlayState", PlayState);
 		if (FlxG.state is PlayState && PlayState.instance != null)
 			setVariable("game", PlayState.instance);
