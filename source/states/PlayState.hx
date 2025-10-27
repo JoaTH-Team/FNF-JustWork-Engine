@@ -68,8 +68,10 @@ class PlayState extends MusicBeatState
 		callFunction('create', []);
 
 		// Create HUD
-		healthBar = new FlxBar(10, 10, LEFT_TO_RIGHT, 200, 20, this, "health", 0, 2, true);
-		healthBar.createFilledBar(0xffff0000, 0xff00ff00);
+		healthBar = new FlxBar(0, FlxG.height * 0.9, LEFT_TO_RIGHT, 601, 19, this, "health", 0, 2, true);
+		healthBar.createFilledBar(0xff00ff00, 0xffff0000);
+		healthBar.screenCenter(X);
+		healthBar.solid = true;
 		healthBar.camera = camHUD;
 		add(healthBar);
 	}
