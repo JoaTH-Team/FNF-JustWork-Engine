@@ -23,10 +23,11 @@ class FunkinScript
         // Flixel Classes
         setVariable("FlxG", FlxG);
         setVariable("FlxSprite", FlxSprite);
+		setVariable("FlxColor", FlxScriptColor.main());
 
         setVariable("PlayState", PlayState);
 		if (FlxG.state is PlayState && PlayState.instance != null)
-			setVariable("PlayState", PlayState.instance);
+			setVariable("game", PlayState.instance);
 
         script.tryExecute(File.getContent(Paths.data('$file.hxs')));
     }
