@@ -7,6 +7,11 @@ import flixel.ui.FlxBar;
 import flixel.util.FlxColor;
 import game.objects.Character;
 import game.scripts.FunkinScript;
+import game.scripts.PolymodHandler;
+import moonchart.formats.fnf.legacy.FNFLegacy;
+import sys.FileSystem;
+
+using StringTools;
 
 class PlayState extends MusicBeatState
 {
@@ -27,6 +32,9 @@ class PlayState extends MusicBeatState
 	public var curStage:String = "stage";
 	public var stageScript:FunkinScript;
 
+	// Scriptes
+	public var gameScript:Array<FunkinScript> = [];
+
 	// Camera
 	public var camGame:FlxCamera;
 	public var camHUD:FlxCamera;
@@ -43,6 +51,9 @@ class PlayState extends MusicBeatState
 
 	// Song
 	public var vocals:Array<FlxSound> = [];
+	public var chart:FNFLegacy;
+	public var curSong:String = 'bopeebo';
+	public var curDifficulty:String = 'normal';
 
 	override public function create()
 	{
@@ -62,8 +73,27 @@ class PlayState extends MusicBeatState
 
 		FlxG.camera.zoom = defaultCamZoom;
 
+		// Song and Chart
+		chart = cast new FNFLegacy().fromFile(Paths.data('songs/${curSong.toLowerCase()}'), null, curDifficulty.toLowerCase());
+
 		// Load stage script
 		stageScript = new FunkinScript('stages/' + curStage);
+
+		// Load scripts thought folder
+		var foldersToCheck:Array<String> = [Paths.file('songs/${chart.data.song.song.toLowerCase()}/')];
+		for (mod in PolymodHandler.getModIDs())
+			foldersToCheck.push('mods/$mod/data/songs/${chart.data.song.song.toLowerCase()}/');
+		for (folder in foldersToCheck)
+		{
+			if (FileSystem.exists(folder) && FileSystem.isDirectory(folder))
+			{
+				for (file in FileSystem.readDirectory(folder))
+				{
+					if (file.endsWith('.hxs'))
+						gameScript.push(new FunkinScript(folder + file));
+				}
+			}
+		}
 
 		// Call create functions for script
 		FlxG.signals.preStateCreate.addOnce(function(state) {
@@ -91,8 +121,8 @@ class PlayState extends MusicBeatState
 		callFunction('update', [elapsed]);
 	}
 
-	public function callFunction(name:String, args:Array<Dynamic>):Dynamic
+	public function callFunction(name:String, args:Array<Dynamic>)
 	{
-		return stageScript.executeFunc(name, args);
+		stageScript.executeFunc(name, args);
 	}
 }
