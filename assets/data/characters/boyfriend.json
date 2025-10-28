@@ -1,0 +1,14 @@
+{
+    "name": "Boyfriend",
+    "assetsPath": "boyfriend",
+    "icon": "bf",
+    "color": "0x00FF00",
+    "animations": [
+        {
+            "name": "idle",
+            "animPrefix": "idle",
+            "frameRate": 24,
+            "loop": false
+        }
+    ]
+}

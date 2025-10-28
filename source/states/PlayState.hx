@@ -2,6 +2,7 @@ package states;
 
 import flixel.FlxCamera;
 import flixel.FlxG;
+import flixel.sound.FlxSound;
 import flixel.ui.FlxBar;
 import flixel.util.FlxColor;
 import game.objects.Character;
@@ -39,6 +40,9 @@ class PlayState extends MusicBeatState
 	// Gameplay variables
 	public var health:Float = 1;
 	public var startingSong:Bool = false;
+
+	// Song
+	public var vocals:Array<FlxSound> = [];
 
 	override public function create()
 	{
