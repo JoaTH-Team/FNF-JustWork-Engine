@@ -1,7 +1,10 @@
 package game.scripts;
 
+import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.text.FlxText;
+import game.paths.Spritesheet;
 import rulescript.RuleScript;
 import rulescript.RuleScriptInterp;
 import rulescript.parsers.HxParser;
@@ -24,9 +27,12 @@ class FunkinScript
         setVariable("FlxG", FlxG);
         setVariable("FlxSprite", FlxSprite);
 		setVariable("FlxColor", FlxScriptColor.main());
+		setVariable("FlxText", FlxText);
+		setVariable("FlxCamera", FlxCamera);
 
 		// JustWork Engine Classes
 		setVariable("Paths", Paths);
+		setVariable("Spritesheet", Spritesheet);
 
         setVariable("PlayState", PlayState);
 		if (FlxG.state is PlayState && PlayState.instance != null)
