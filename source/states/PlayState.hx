@@ -74,7 +74,7 @@ class PlayState extends MusicBeatState
 		FlxG.camera.zoom = defaultCamZoom;
 
 		// Song and Chart
-		chart = cast new FNFLegacy().fromFile(Paths.data('songs/${curSong.toLowerCase()}'), null, curDifficulty.toLowerCase());
+		// chart = cast new FNFLegacy().fromFile(Paths.data('songs/${curSong.toLowerCase()}'), null, curDifficulty.toLowerCase());
 
 		// Load stage script
 		stageScript = new FunkinScript('stages/' + curStage);

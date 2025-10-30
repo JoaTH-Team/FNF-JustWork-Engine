@@ -63,4 +63,8 @@
 	<target id="haxe" tool="linker" if="macos">
 		<lib name="/lib64/libX11.a" if="HXCPP_M64" /> <!-- mac support -->
 	</target>
+
+	<!-- Some Shortcut Define -->
+	<!-- To use, using -D <DEFINE_NAME> after `lime test <your platform>` -->
+	<define name="SKIP_TO_STAGE_EDITOR" />
 </project>
