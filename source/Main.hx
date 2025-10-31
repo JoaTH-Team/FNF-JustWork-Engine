@@ -1,5 +1,6 @@
 package;
 
+import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.FlxState;
 import flixel.util.FlxColor;
@@ -21,6 +22,7 @@ class Main extends Sprite
 		addChild(new FlxGame(0, 0, getClasses()));
 		addChild(new FPS(10, 3, FlxColor.WHITE));
 
+		FlxG.mouse.useSystemCursor = true;
 		PolymodHandler.reload();
 	}
 
