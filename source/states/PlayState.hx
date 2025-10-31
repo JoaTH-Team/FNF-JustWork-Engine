@@ -80,17 +80,20 @@ class PlayState extends MusicBeatState
 		stageScript = new FunkinScript('stages/' + curStage);
 
 		// Load scripts thought folder
-		var foldersToCheck:Array<String> = [Paths.file('songs/${chart.data.song.song.toLowerCase()}/')];
-		for (mod in PolymodHandler.getModIDs())
-			foldersToCheck.push('mods/$mod/data/songs/${chart.data.song.song.toLowerCase()}/');
-		for (folder in foldersToCheck)
+		if (chart != null)
 		{
-			if (FileSystem.exists(folder) && FileSystem.isDirectory(folder))
+			var foldersToCheck:Array<String> = [Paths.file('songs/${chart.data.song.song.toLowerCase()}/')];
+			for (mod in PolymodHandler.getModIDs())
+				foldersToCheck.push('mods/$mod/data/songs/${chart.data.song.song.toLowerCase()}/');
+			for (folder in foldersToCheck)
 			{
-				for (file in FileSystem.readDirectory(folder))
+				if (FileSystem.exists(folder) && FileSystem.isDirectory(folder))
 				{
-					if (file.endsWith('.hxs'))
-						gameScript.push(new FunkinScript(folder + file));
+					for (file in FileSystem.readDirectory(folder))
+					{
+						if (file.endsWith('.hxs'))
+							gameScript.push(new FunkinScript(folder + file));
+					}
 				}
 			}
 		}
@@ -103,7 +106,7 @@ class PlayState extends MusicBeatState
 
 		// Create HUD
 		healthBar = new FlxBar(0, FlxG.height * 0.9, LEFT_TO_RIGHT, 601, 19, this, "health", 0, 2, true);
-		healthBar.createFilledBar(0xff00ff00, 0xffff0000);
+		healthBar.createFilledBar(0xff00ff00, 0xffff0000, true, FlxColor.BLACK, 4);
 		healthBar.screenCenter(X);
 		healthBar.solid = true;
 		healthBar.camera = camHUD;

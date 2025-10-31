@@ -1,15 +1,10 @@
 package states.editors;
 
 import flixel.FlxG;
-import haxe.ui.components.Button;
 import haxe.ui.components.SectionHeader;
 import haxe.ui.components.TextField;
-import haxe.ui.containers.VBox;
 import haxe.ui.containers.windows.Window;
 import haxe.ui.containers.windows.WindowManager;
-import haxe.ui.core.Screen;
-import haxe.ui.core.TextInput;
-import haxe.ui.events.MouseEvent;
 
 class StageEditorState extends MusicBeatState
 {
