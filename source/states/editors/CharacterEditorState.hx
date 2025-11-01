@@ -54,6 +54,7 @@ class CharacterEditorState extends MusicBeatState
         var bg:FlxSprite = new FlxSprite(0, 0, Paths.image('menuDesat'));
         bg.screenCenter();
         bg.scrollFactor.set(0, 0);
+        bg.color = 0x565656;
         add(bg);
 
         character = new Character(characterToEdit, 0, 0, false);

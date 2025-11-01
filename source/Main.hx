@@ -24,8 +24,6 @@ class Main extends Sprite
 		addChild(new FPS(10, 3, FlxColor.WHITE));
 
 		FlxG.mouse.useSystemCursor = true;
-		FlxSprite.defaultAntialiasing = true;
-		PolymodHandler.reload();
 
 		var crash_handler:Cataclysm = new Cataclysm();
 		crash_handler.setup("crash_logs", "FNF_JUSTWORK_ENGINE_CRASH_LOG");
