@@ -34,6 +34,11 @@ class FunkinScript
 		setVariable("Paths", Paths);
 		setVariable("Spritesheet", Spritesheet);
 
+		// JustWork Engine Stuff
+		setVariable("variable", FunkinScriptVariable.variables);
+		setVariable("setVariable", FunkinScriptVariable.setVariable);
+		setVariable("getVariable", FunkinScriptVariable.getVariable);
+
         setVariable("PlayState", PlayState);
 		if (FlxG.state is PlayState && PlayState.instance != null)
 			setVariable("game", PlayState.instance);

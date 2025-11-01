@@ -74,4 +74,5 @@
 	<!-- Some Shortcut Define -->
 	<!-- To use, using -D <DEFINE_NAME> after `lime test <your platform>` -->
 	<define name="SKIP_TO_STAGE_EDITOR" />
+	<define name="SKIP_TO_CHARACTER_EDITOR" />
 </project>

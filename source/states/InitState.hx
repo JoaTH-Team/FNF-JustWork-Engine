@@ -93,6 +93,12 @@ class InitState extends MusicBeatState {
     }
 
     function getClasses():FlxState {
+        #if SKIP_TO_STAGE_EDITOR
+        return new states.editors.StageEditorState();
+        #elseif SKIP_TO_CHARACTER_EDITOR
+        return new states.editors.CharacterEditorState();
+        #else
         return new states.PlayState();
+        #end
     }
 }
