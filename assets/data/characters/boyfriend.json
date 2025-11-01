@@ -1,14 +1,43 @@
 {
     "name": "Boyfriend",
-    "assetsPath": "boyfriend",
+    "assetsPath": "BOYFRIEND",
     "icon": "bf",
     "color": "0x00FF00",
     "animations": [
         {
             "name": "idle",
-            "animPrefix": "idle",
+            "animPrefix": "BF idle dance0",
+            "animOffset": [0, 0],
             "frameRate": 24,
-            "loop": false
+            "looped": false
+        },
+        {
+            "name": "singLEFT",
+            "animPrefix": "BF NOTE LEFT0",
+            "animOffset": [0, 0],
+            "frameRate": 24,
+            "looped": false
+        },
+        {
+            "name": "singDOWN",
+            "animPrefix": "BF NOTE DOWN0",
+            "animOffset": [0, 0],
+            "frameRate": 24,
+            "looped": false
+        },
+        {
+            "name": "singUP",
+            "animPrefix": "BF NOTE UP0",
+            "animOffset": [0, 0],
+            "frameRate": 24,
+            "looped": false
+        },
+        {
+            "name": "singRIGHT",
+            "animPrefix": "BF NOTE RIGHT0",
+            "animOffset": [0, 0],
+            "frameRate": 24,
+            "looped": false            
         }
     ]
 }

@@ -3,6 +3,7 @@ package game.objects;
 import flixel.FlxSprite;
 import game.paths.Spritesheet;
 import haxe.Json;
+import openfl.Assets;
 
 typedef CharacterData = {
     var name:String;
@@ -23,18 +24,18 @@ typedef AnimationData = {
 class Character extends FlxSprite
 {
     public var characterData:CharacterData;
-
-    var animationsData:Array<AnimationData>;
-    var animOffset:Map<String, Array<Int>> = new Map();
+    public var animationsData:Array<AnimationData>;
+    public var animOffset:Map<String, Array<Int>> = new Map();
 
     public function new(name:String, x:Float = 0, y:Float = 0, isPlayer:Bool = false) {
         super(x, y);
 
         // Parse character data from JSON
-        characterData = Json.parse(Paths.data('characters/' + name + '.json'));
+        var jsonContent:String = Assets.getText(Paths.data('characters/' + name.toLowerCase() + '.json'));
+        characterData = Json.parse(jsonContent);
 
         // Load config from the JSON data
-        frames = Spritesheet.altas('characters/${characterData.assetsPath}');
+        frames = Spritesheet.atlas('characters/${characterData.assetsPath}');
         animationsData = characterData.animations;
 
         for (animData in animationsData) {

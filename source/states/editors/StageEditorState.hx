@@ -41,7 +41,7 @@ class StageEditorState extends MusicBeatState
         super.update(elapsed);
 
         if (controls.justPressed.BACK) {
-            // WindowManager.instance.closeWindow(window);
+            WindowManager.instance.closeWindow(window);
             FlxG.switchState(() -> new PlayState());
         }
     }

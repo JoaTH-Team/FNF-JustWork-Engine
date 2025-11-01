@@ -35,7 +35,7 @@ class Paths {
         
         return directory + name;
     }
-    
+
     /**
      * Get path to an image file
      * @param imageName Image file name (with or without extension)

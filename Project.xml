@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	<!-- App Settings -->
-	<app title="FNF JustWork Engine" file="FNF JustWork Engine" main="Main" version="0.0.1" company="HaxeFlixel" />
+	<app title="FNF JustWork Engine" file="FNF JustWork Engine" packageName="com.justworkEngine.data" package="com.justworkEngine.data" main="Main" version="0.0.1" company="Huy1234TH" />
 	<app preloader="flixel.system.FlxPreloader" />
 
 	<!-- Window Settings -->
@@ -24,6 +24,7 @@
 	<haxelib name="flixel-controls" />
 	<haxelib name="haxeui-flixel" />
 	<haxelib name="haxeui-core" />
+	<haxelib name="cataclysm" />
 
 	<!-- Defines -->
 	<haxedef name="FLX_NO_HEALTH" />
@@ -40,6 +41,12 @@
 	<haxedef name="message.reporting" value="pretty" />
 
 	<haxedef name="hscriptPos" />
+
+	<haxedef name="HXCPP_CHECK_POINTER" />
+	<haxedef name="HXCPP_CATCH_SEGV" />
+	<haxedef name="HXCPP_STACK_LINE" />
+	<haxedef name="HXCPP_STACK_TRACE" />
+	<haxedef name="openfl-enable-handle-error" />
 
 	<!-- Flags -->
 	<haxeflag name="-dce" value="no" />

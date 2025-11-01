@@ -9,6 +9,7 @@ import game.objects.Character;
 import game.scripts.FunkinScript;
 import game.scripts.PolymodHandler;
 import moonchart.formats.fnf.legacy.FNFLegacy;
+import states.editors.*;
 import sys.FileSystem;
 
 using StringTools;
@@ -122,6 +123,16 @@ class PlayState extends MusicBeatState
 			callFunction('preUpdate', [elapsed]);
 		});
 		callFunction('update', [elapsed]);
+
+		if (FlxG.keys.pressed.SEVEN) {
+			if (FlxG.keys.justPressed.C) {
+				FlxG.switchState(() -> new CharacterEditorState());
+			}
+
+			if (FlxG.keys.justPressed.S) {
+				FlxG.switchState(() -> new StageEditorState());
+			}
+		}
 	}
 
 	public function callFunction(name:String, args:Array<Dynamic>)

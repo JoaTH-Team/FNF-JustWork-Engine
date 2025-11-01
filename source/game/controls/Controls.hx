@@ -31,8 +31,8 @@ class Controls extends FlxControls<Action> {
             Action.UI_LEFT => [FlxKey.fromString("A"), FlxKey.fromString("LEFT")],
             Action.UI_RIGHT => [FlxKey.fromString("D"), FlxKey.fromString("RIGHT")],
 
-            Action.ACCEPT => [FlxKey.fromString("ENTER"), FlxKey.fromString("SPACE")],
-            Action.BACK => [FlxKey.fromString("ESCAPE"), FlxKey.fromString("BACKSPACE")],
+            Action.ACCEPT => [FlxKey.fromString("ENTER")],
+            Action.BACK => [FlxKey.fromString("ESCAPE")],
         ];
     }
 }
